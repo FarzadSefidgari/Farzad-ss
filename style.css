@@ -1,0 +1,24 @@
+:root{--bg:#0f172a;--ink:#e2e8f0;--muted:#94a3b8;--brand:#22d3ee;--card:#111827;--accent:#38bdf8}
+*{box-sizing:border-box}html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:var(--ink);background:#0b1220}
+.topbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,#0b1220, #0f172a);padding:14px 20px;border-bottom:1px solid #1f2937}
+.brand{font-weight:700;letter-spacing:.5px}
+.nav a{color:var(--muted);text-decoration:none;margin:0 10px}
+.nav a:hover{color:#fff}
+.lang{display:flex;gap:6px}
+.lang-btn{background:#121a2b;color:var(--ink);border:1px solid #22314a;border-radius:8px;padding:6px 10px}
+.lang-btn.active{border-color:var(--brand);color:#fff}
+.hero{padding:90px 20px;text-align:center;background:linear-gradient(135deg,#0ea5e9, #22d3ee);color:#04243a}
+.hero h1{font-size: clamp(28px,4.5vw,44px);margin:0 0 10px}
+.hero p{margin:0 0 24px}
+.cta{display:inline-block;background:var(--bg);color:#fff;padding:12px 18px;border-radius:12px;text-decoration:none}
+.section{padding:64px 20px;max-width:1100px;margin:0 auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+.card{background:#0d1527;border:1px solid #1f2a44;border-radius:16px;padding:18px}
+.work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+.work{display:block;border:1px solid #1f2a44;border-radius:16px;overflow:hidden;background:#0d1527;text-decoration:none;color:var(--ink)}
+.thumb{height:140px;background:linear-gradient(135deg,var(--brand),var(--accent))}
+.work-info{display:flex;align-items:center;justify-content:space-between;padding:12px}
+.work:hover{outline:2px solid var(--brand)}
+.contact a{color:#fff}
+.footer{border-top:1px solid #1f2937;padding:22px 20px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:space-between;background:#0b1220}
+.tiny{color:var(--muted);font-size:12px}
