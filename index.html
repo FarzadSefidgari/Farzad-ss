@@ -1,71 +1,84 @@
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Farzad — Web Studio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farzad Agency</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="main.js" defer></script>
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">Farzad Studio</div>
-    <nav class="nav">
-      <a href="#home" data-i18n="nav_home">Home</a>
-      <a href="#services" data-i18n="nav_services">Services</a>
-      <a href="#work" data-i18n="nav_work">Portfolio</a>
-      <a href="#contact" data-i18n="nav_contact">Contact</a>
-    </nav>
-    <div class="lang">
-      <button class="btn" data-lang="en">EN</button>
-      <button class="btn" data-lang="de">DE</button>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1 class="logo">Farzad Agency</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <main id="home" class="container">
-    <section class="hero">
-      <h1 data-i18n="hero_title">We build clean, modern websites.</h1>
-      <p class="muted" data-i18n="hero_sub">Fast, secure and SEO-friendly. Perfect for your business.</p>
-      <a class="cta" href="#contact" data-i18n="cta_get_started">Get Started</a>
-    </section>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2>We Build Modern Websites</h2>
+      <p>Professional, Fast, and Optimized for Your Business</p>
+      <a href="#contact" class="btn">Get in Touch</a>
+    </div>
+  </section>
 
-    <section id="services" class="grid">
-      <h2 data-i18n="sec_services">What we do</h2>
+  <!-- Services -->
+  <section id="services" class="section">
+    <h2>Our Services</h2>
+    <div class="services-grid">
       <div class="card">
-        <h3 data-i18n="svc_web">Web Design & Dev</h3>
-        <p data-i18n="svc_web_desc">Landing pages, corporate sites, and shops.</p>
+        <h3>Website Design</h3>
+        <p>We create stunning, modern and responsive websites.</p>
       </div>
       <div class="card">
-        <h3 data-i18n="svc_seo">SEO & Security</h3>
-        <p data-i18n="svc_seo_desc">On-page SEO, performance and hardening.</p>
+        <h3>SEO Optimization</h3>
+        <p>Rank higher on Google and attract more customers.</p>
       </div>
       <div class="card">
-        <h3 data-i18n="svc_b2b">B2B Solutions</h3>
-        <p data-i18n="svc_b2b_desc">Automation, lead gen, and dashboards.</p>
+        <h3>B2B Solutions</h3>
+        <p>Helping businesses connect and grow in digital markets.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="work">
-      <h2 data-i18n="sec_work">Recent Work</h2>
-      <ul class="list">
-        <li><strong>SaaS Landing</strong> — <a href="#" data-i18n="view_demo">View demo</a></li>
-        <li><strong>Corporate Site</strong> — <a href="#" data-i18n="view_demo">View demo</a></li>
-        <li><strong>Shop Template</strong> — <a href="#" data-i18n="view_demo">View demo</a></li>
-      </ul>
-    </section>
+  <!-- Portfolio -->
+  <section id="portfolio" class="section">
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">Sample Project 1</div>
+      <div class="portfolio-item">Sample Project 2</div>
+      <div class="portfolio-item">Sample Project 3</div>
+    </div>
+  </section>
 
-    <section id="contact">
-      <h2 data-i18n="sec_contact">Contact</h2>
-      <p>WhatsApp: <a href="https://wa.me/4917620311546" target="_blank">+49 176 20311546</a></p>
-      <p>Email: <a href="mailto:farzadsfdg@gmail.com">farzadsfdg@gmail.com</a></p>
-      <p class="muted" data-i18n="contact_note">Online service — text communication only.</p>
-    </section>
-  </main>
+  <!-- About -->
+  <section id="about" class="section">
+    <h2>About Us</h2>
+    <p>We are a passionate team providing digital services to help your business shine online.</p>
+  </section>
 
-  <footer class="footer">
-    <small>© <span id="y"></span> Farzad Studio</small>
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <h2>Contact</h2>
+    <p>WhatsApp: +49 17620311546</p>
+    <p>Email: frzsef@gmail.com</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Farzad Agency. All Rights Reserved.</p>
   </footer>
-
-  <script src="main.js"></script>
 </body>
 </html>
