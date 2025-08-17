@@ -1,235 +1,189 @@
+/* =========================
+   Farzad Agency — style.css
+   ========================= */
 
-/* ========= Root & Reset ========= */
+/* ---------- Tokens & Reset ---------- */
 :root{
   --bg: #0e0f13;
-  --card: #151823;
-  --text: #e6e9ef;
-  --muted:#a8b0c2;
-  --brand:#6ee7b7;      /* mint */
-  --brand-2:#60a5fa;    /* blue */
-  --accent:#f59e0b;     /* amber */
+  --panel:#141824;
+  --text:#e8edf4;
+  --muted:#9aa4b5;
+  --brand:#6ee7b7;   /* mint */
+  --brand2:#60a5fa;  /* blue */
   --border: rgba(255,255,255,.08);
-  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --shadow: 0 10px 26px rgba(0,0,0,.25);
   --radius: 16px;
   --radius-sm: 12px;
-  --radius-lg: 22px;
   --maxw: 1100px;
 }
 
-*{ box-sizing:border-box; }
-html,body{ padding:0; margin:0; }
-img{ max-width:100%; display:block; }
-a{ color:inherit; text-decoration:none; }
-button{ font:inherit; }
-
-/* Light mode (سیستم کاربر) */
 @media (prefers-color-scheme: light){
   :root{
     --bg:#f7f8fb;
-    --card:#ffffff;
-    --text:#0e1222;
-    --muted:#5b647a;
-    --border: rgba(6, 24, 44, .06);
-    --shadow: 0 12px 28px rgba(12, 18, 32, .1);
+    --panel:#ffffff;
+    --text:#0e1422;
+    --muted:#5a6379;
+    --border: rgba(8,15,30,.08);
+    --shadow: 0 12px 30px rgba(10, 14, 24, .08);
   }
 }
 
-/* ========= Base ========= */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+img{max-width:100%;display:block;border-radius:14px}
+a{color:inherit;text-decoration:none}
+ul{margin:0;padding:0;list-style:none}
+button{font:inherit}
+
+/* ---------- Base ---------- */
 body{
-  background: radial-gradient(1200px 800px at 80% -10%, rgba(96,165,250,.25), transparent 60%)
-              ,radial-gradient(900px 600px at -10% 10%, rgba(110,231,183,.25), transparent 60%)
-              ,var(--bg);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
   color:var(--text);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-  line-height:1.6;
+  background:
+    radial-gradient(900px 600px at 80% -10%, rgba(96,165,250,.25), transparent 60%),
+    radial-gradient(900px 600px at -10% 10%, rgba(110,231,183,.20), transparent 60%),
+    var(--bg);
+  line-height:1.65;
 }
 
 .container{
-  width: min(100% - 32px, var(--maxw));
+  width:min(100% - 32px, var(--maxw));
   margin-inline:auto;
 }
 
-.section{ padding: 64px 0; }
-.section .section-title{
-  font-size: clamp(26px, 3.2vw, 36px);
-  margin:0 0 18px;
-  letter-spacing:.3px;
-}
-.section .section-sub{
-  color:var(--muted);
-  margin-top:-6px;
-}
+.muted{color:var(--muted)}
+.mt{margin-top:24px}
+.mt-2{margin-top:10px}
+.mt-3{margin-top:16px}
+.mb-2{margin-bottom:10px}
+.mb-3{margin-bottom:16px}
+.mb-4{margin-bottom:22px}
 
-/* ========= Topbar / Header ========= */
-.topbar{
+/* ---------- Header (sticky) ---------- */
+header{
   position:sticky; top:0; z-index:50;
   backdrop-filter: saturate(180%) blur(10px);
-  background: color-mix(in oklab, var(--bg), transparent 20%);
+  background: color-mix(in oklab, var(--bg), transparent 15%);
   border-bottom:1px solid var(--border);
 }
-.topbar .wrap{
-  display:flex; align-items:center; gap:14px;
-  justify-content:space-between;
-  height:64px;
+header .container{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:16px; height:64px;
 }
-.brand{
-  display:flex; align-items:center; gap:10px;
-  font-weight:700; letter-spacing:.3px;
+.logo{
+  margin:0; font-size:18px; letter-spacing:.4px; font-weight:800;
 }
-.brand::before{
-  content:""; width:28px; height:28px; border-radius:10px;
-  background: linear-gradient(135deg, var(--brand), var(--brand-2));
-  box-shadow: 0 6px 18px rgba(96,165,250,.35);
+header nav ul{display:flex; gap:10px; flex-wrap:wrap}
+header nav a{
+  color:#cdd5e3; padding:10px 12px; border-radius:10px; transition:.2s ease;
 }
-
-.nav{
-  display:flex; align-items:center; gap:6px;
-  flex-wrap:wrap;
-}
-.nav a{
-  padding:10px 14px; border-radius:10px; color:var(--muted);
-  transition:.25s ease; font-weight:600;
-}
-.nav a:hover, .nav a.active{
-  color:var(--text);
-  background: color-mix(in oklab, var(--card), transparent 50%);
+header nav a:hover{color:#fff; background:rgba(255,255,255,.06)}
+header nav a.active{
+  color:#fff; background:rgba(255,255,255,.08);
   box-shadow: inset 0 0 0 1px var(--border);
 }
 
-/* زبان‌ها */
-.lang-switch{
-  display:flex; gap:8px; align-items:center;
-}
-.lang-switch .chip{
-  border:1px solid var(--border); color:var(--muted);
-  padding:8px 12px; border-radius:10px; background:var(--card);
-  cursor:pointer; transition:.25s ease; font-weight:700; letter-spacing:.3px;
-}
-.lang-switch .chip.active, .lang-switch .chip:hover{
-  color:var(--text);
-  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--brand-2), var(--brand) 60%);
+/* سایه هنگام اسکرول (با JS اضافه می‌شود) */
+header.scrolled{
+  box-shadow: var(--shadow);
+  background: color-mix(in oklab, var(--bg), transparent 25%);
 }
 
-/* ========= Hero ========= */
+/* ---------- Hero ---------- */
 .hero{
-  padding: 64px 0 30px;
+  padding:72px 0 48px;
+  display:grid; place-items:center;
+  text-align:center;
 }
-.hero .badge{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:8px 12px; border:1px dashed var(--border);
-  color:var(--muted); border-radius:999px; background: color-mix(in oklab, var(--card), transparent 60%);
+.hero h2{
+  font-size: clamp(28px, 5vw, 44px);
+  line-height:1.15; margin:0 0 10px;
 }
-.hero h1{
-  font-size: clamp(32px, 5vw, 54px);
-  line-height:1.15; margin:14px 0 12px;
-}
-.hero p{
-  color:var(--muted); max-width: 70ch;
-}
-.cta{
-  margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;
-}
+.hero p{color:var(--muted); margin:0 0 18px}
 .btn{
-  appearance:none; border:0; cursor:pointer;
-  padding:12px 18px; border-radius:12px; font-weight:700;
-  display:inline-flex; align-items:center; gap:10px;
-  transition: transform .06s ease, box-shadow .25s ease, background .25s ease;
+  display:inline-block; font-weight:800; letter-spacing:.2px;
+  padding:12px 16px; border-radius:12px; border:1px solid var(--border);
+  background: color-mix(in oklab, var(--panel), transparent 30%);
+  color:var(--text); transition: transform .06s ease, filter .2s ease, background .2s ease;
 }
-.btn:active{ transform: translateY(1px); }
-.btn-primary{
-  color:#0b1220; background: linear-gradient(135deg, var(--brand), var(--brand-2));
-  box-shadow: 0 10px 22px rgba(96,165,250,.35);
-}
-.btn-primary:hover{ filter:saturate(110%); }
-.btn-ghost{
-  color:var(--text); background: color-mix(in oklab, var(--card), transparent 40%);
-  box-shadow: inset 0 0 0 1px var(--border);
-}
-.btn-ghost:hover{ background: color-mix(in oklab, var(--card), transparent 20%); }
+.btn:active{transform: translateY(1px)}
+.btn:hover{filter:brightness(1.05)}
+.hero .btn{background: linear-gradient(135deg, var(--brand), var(--brand2)); color:#061120; border:none}
 
-/* ========= Grids / Cards ========= */
-.grid{
-  display:grid; gap:18px;
-  grid-template-columns: repeat(12, 1fr);
+/* ---------- Sections ---------- */
+.section{padding:48px 0}
+.section h2{
+  font-size: clamp(22px, 3vw, 28px);
+  margin:0 0 12px;
 }
-.col-4{ grid-column: span 4; }
-.col-6{ grid-column: span 6; }
-.col-12{ grid-column: span 12; }
 
+/* ---------- Services ---------- */
+.services-grid{
+  display:grid; gap:16px;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  margin-top:16px;
+}
 .card{
-  background: var(--card);
+  background: var(--panel);
   border:1px solid var(--border);
   border-radius: var(--radius);
-  padding:18px; box-shadow: var(--shadow);
+  padding:18px;
+  box-shadow: var(--shadow);
   transition: transform .18s ease, box-shadow .25s ease, border-color .25s ease;
 }
 .card:hover{
   transform: translateY(-4px);
-  box-shadow: 0 14px 34px rgba(0,0,0,.25);
-  border-color: color-mix(in oklab, var(--brand-2), var(--brand) 60%);
+  box-shadow: 0 16px 36px rgba(0,0,0,.25);
+  border-color: color-mix(in oklab, var(--brand2), var(--brand) 60%);
 }
-.card h3{ margin:6px 0 6px; font-size:20px; }
-.card p{ color:var(--muted); margin:0; }
-.card .pill{
-  display:inline-block; font-size:12px; font-weight:700; letter-spacing:.4px;
-  color:#0b1220; background: linear-gradient(135deg, var(--brand), var(--brand-2));
-  padding:6px 10px; border-radius:999px;
-}
+.card h3{margin:6px 0 8px}
+.card p{color:var(--muted); margin:0}
 
-/* ========= Services ========= */
-.services .card .icon{
-  width:40px; height:40px; border-radius:12px; display:grid; place-items:center;
-  background: color-mix(in oklab, var(--brand-2), var(--brand) 65%);
-  color:#0b1220; font-weight:900;
-  box-shadow: 0 10px 18px rgba(96,165,250,.35);
-  margin-bottom:8px;
+/* ---------- Portfolio ---------- */
+.portfolio-grid{
+  display:grid; gap:16px;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  margin-top:16px;
 }
-
-/* ========= Portfolio ========= */
-.portfolio .thumb{
-  border-radius:14px; overflow:hidden; aspect-ratio: 16/9;
-  border:1px solid var(--border); background:#000; position:relative;
-}
-.portfolio .thumb img{ width:100%; height:100%; object-fit:cover; opacity:.9; transition:.35s ease; }
-.portfolio .thumb:hover img{ transform:scale(1.02); opacity:1; }
-.portfolio .meta{
-  display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:10px;
-}
-
-/* ========= Contact / Footer ========= */
-.contact .item{
-  display:flex; align-items:center; gap:12px;
-  padding:14px; border-radius:12px; background: var(--card);
+.portfolio-item{
+  background:var(--panel);
   border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding:18px;
+  text-align:center;
+  box-shadow: var(--shadow);
 }
-.contact .item a{ color:var(--brand-2); font-weight:700; }
+
+/* ---------- Contact ---------- */
+.contact p{margin:6px 0}
+.contact a{color:var(--brand2); font-weight:700}
+
+/* ---------- Footer ---------- */
 footer{
-  margin-top:60px; padding:22px 0; border-top:1px solid var(--border);
+  margin-top:40px; padding:22px 0;
+  border-top:1px solid var(--border);
   color:var(--muted); text-align:center;
 }
 
-/* ========= Helpers ========= */
-.muted{ color:var(--muted); }
-.center{ text-align:center; }
-.mt-2{ margin-top:8px; } .mt-3{ margin-top:14px; } .mt-4{ margin-top:20px; } .mt-6{ margin-top:28px; }
-.mb-2{ margin-bottom:8px; } .mb-3{ margin-bottom:14px; } .mb-4{ margin-bottom:20px; } .mb-6{ margin-bottom:28px; }
-
-/* ========= Responsive ========= */
-@media (max-width: 1024px){
-  .col-4{ grid-column: span 6; }
-  .col-6{ grid-column: span 6; }
+/* ---------- Reveal Animations (used by main.js) ---------- */
+.reveal{
+  opacity:0; transform: translateY(18px) scale(.98);
+  will-change: opacity, transform;
+  transition: opacity .6s cubic-bezier(.2,.7,.2,1),
+              transform .6s cubic-bezier(.2,.7,.2,1);
 }
-@media (max-width: 720px){
-  .wrap{ padding-inline: 8px; }
-  .grid{ grid-template-columns: repeat(6, 1fr); }
-  .col-4,.col-6,.col-12{ grid-column: span 6; }
-  .topbar .wrap{ height:60px; }
-  .nav a{ padding:8px 10px; }
-  .hero{ padding-top:40px; }
+.reveal.reveal-in{
+  opacity:1; transform: translateY(0) scale(1);
 }
 
-/* ========= Basic Typography Polish ========= */
-h1,h2,h3,h4{ line-height:1.2; }
-h2{ font-size: clamp(22px, 3vw, 28px); margin:0 0 10px; }
-h3{ font-size: clamp(18px, 2.4vw, 22px); }
-ul{ margin:0; padding-left:18px; }
+/* ---------- Responsive ---------- */
+@media (max-width: 900px){
+  .services-grid, .portfolio-grid{ grid-template-columns:1fr 1fr }
+}
+@media (max-width: 640px){
+  header .container{height:60px}
+  header nav ul{gap:6px}
+  header nav a{padding:8px 10px}
+  .services-grid, .portfolio-grid{ grid-template-columns:1fr }
+  .hero{padding-top:56px}
+}
